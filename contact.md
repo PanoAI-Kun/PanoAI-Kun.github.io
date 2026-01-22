@@ -5,9 +5,9 @@ title: Contact & Consultation
 
 # B2B Consultation & Collaboration
 
-Please provide the technical details of your project or inquiry. I will prioritize requests that align with my core expertise in CV, 3D Reconstruction, and VR.
+> **Note**: For a prompt response, please ensure all technical challenge details are provided.
 
-<form action="https://formspree.io/f/your-id" method="POST" id="contact-form">
+<form action="https://formspree.io/f/mbddevyj" method="POST" id="contact-form">
   
   <label for="name">Name / Organization</label>
   <input type="text" name="name" required placeholder="Dr. Jane Doe / Tech Corp">
@@ -36,13 +36,8 @@ Please provide the technical details of your project or inquiry. I will prioriti
   <label for="message">Technical Challenge / Project Description</label>
   <textarea name="message" rows="5" required placeholder="Describe the geometric or vision challenge..."></textarea>
 
-  <div class="h-captcha" data-sitekey="your-site-key"></div>
+  <div class="h-captcha" data-sitekey="446a72d2-d078-43d4-a1ac-7322843691f6"></div>
   <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
   <button type="submit" style="background-color: #1A1A1A; color: #FFFFFF; padding: 10px 20px; border: none; cursor: pointer;">Send Request</button>
 </form>
-
----
-### Alternative Channels
-* **LinkedIn**: [Your Profile Link]
-* **Google Scholar**: [Your Scholar Link]
