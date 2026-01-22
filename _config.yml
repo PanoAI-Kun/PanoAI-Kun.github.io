@@ -4,6 +4,9 @@ description: "Bridging State-of-the-Art Research with Industrial Solutions."
 url: "https://PanoAI-Kun.github.io"
 baseurl: ""
 
+kramdown:
+  math_engine: null
+  
 markdown: kramdown
 theme: null
 plugins:
