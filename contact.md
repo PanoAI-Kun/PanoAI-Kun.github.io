@@ -5,12 +5,15 @@ title: Contact & Consultation
 
 # B2B Consultation & Collaboration
 
-> **Note**: For a prompt response, please ensure all technical challenge details are provided.
+Please fill out the form below to discuss industrial projects, recruitment, or academic research.
 
 <form action="https://formspree.io/f/mbddevyj" method="POST" id="contact-form">
   
   <label for="name">Name / Organization</label>
   <input type="text" name="name" required placeholder="Dr. Jane Doe / Tech Corp">
+
+  <label for="email">Your Email Address</label>
+  <input type="email" name="_replyto" required placeholder="jane.doe@company.com">
 
   <label for="type">Collaboration Type</label>
   <select name="type" required>
