@@ -39,3 +39,29 @@ a {
     text-decoration: underline;
   }
 }
+
+/* 1. 移动端容器适配 */
+.katex-display, table {
+  display: block;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5em 0;
+  padding-bottom: 0.5em;
+}
+
+/* 2. 极简风格滚动条 */
+::-webkit-scrollbar {
+  height: 4px;
+}
+::-webkit-scrollbar-thumb {
+  background: #E0E0E0;
+  border-radius: 2px;
+}
+
+/* 3. 移动端留白与排版 */
+@media (max-width: 768px) {
+  body {
+    padding: 20px;
+    line-height: 1.6; /* 保持严谨排版 */
+  }
+}

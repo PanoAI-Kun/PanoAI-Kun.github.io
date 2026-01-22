@@ -6,9 +6,14 @@ baseurl: ""
 
 kramdown:
   math_engine: null
-  
+
 markdown: kramdown
 theme: null
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-katex
+
+katex:
+  # 确保在构建时生成静态 HTML 代码，消除客户端闪烁
+  render_math: true

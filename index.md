@@ -1,18 +1,19 @@
 ---
-layout: default
+layout: home
+title: Home
 ---
 
 # Kun | PhD in Computer Science
-## PanoAI-Lab Principal
+**Bridging State-of-the-Art Research with Industrial Solutions.**
 
-Bridging State-of-the-Art Research with Industrial Solutions.
+---
 
-### 🧪 渲染测试 (Story 1.2)
-这是行内公式：$\theta = \arctan2(y, x)$
+### 🎖️ Recognitions
+* **Best Paper Award 2025**
+* **IEEE TIP Author**
+* **Tier A* Journal Contributor (TVCG, TIP)**
 
-这是独立块公式：
-$$
-\phi = \arcsin(z/r)
-$$
+## About Me
+I specialize in Computer Vision, 360° Reconstruction, and VR technology, focusing on creating high-impact AI solutions that drive commercial value and academic progress.
 
-[Case Studies Coming Soon...]
+[View Featured Case Studies](/_case_studies/truck-reid) | [Full Publications](/publications)
