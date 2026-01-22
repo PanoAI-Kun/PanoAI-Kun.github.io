@@ -1,0 +1,11 @@
+title: "PanoAI-Kun | AI Expert & PhD"
+description: "Bridging State-of-the-Art Research with Industrial Solutions."
+# 这里的 username 记得替换为你实际创建的 Organization 名字
+url: "https://PanoAI-Kun.github.io"
+baseurl: ""
+
+markdown: kramdown
+theme: null
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

@@ -1,0 +1,41 @@
+// 引入 Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+$bg-color: #FFFFFF;
+$text-color: #1A1A1A;
+$font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+$line-height: 1.65;
+
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: $font-family;
+  line-height: $line-height;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  
+  // 响应式边距：移动端允许缩边
+  @media (max-width: 600px) {
+    padding: 1.2rem;
+  }
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: #000000;
+}
+
+a {
+  color: #0070f3;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
