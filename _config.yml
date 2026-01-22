@@ -17,3 +17,8 @@ plugins:
 katex:
   # 确保在构建时生成静态 HTML 代码，消除客户端闪烁
   render_math: true
+
+collections:
+  case_studies:
+    output: true
+    permalink: /case_studies/:path/
