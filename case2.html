@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PanoAI-Geometric Cognitive System</title>
+    <link rel="icon" type="image/png" href="assets/icon_16x16.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-10">
+    <main-navbar></main-navbar>
+    <main class="max-w-5xl mx-auto pt-10">
+        <article class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="md:col-span-2 space-y-12">
+                <header>
+                    <h1 class="text-6xl font-black tracking-tighter mb-4">Omnidirectional<br>Geometric Perception</h1>
+                    <p class="text-xl text-slate-400 italic">Capturing the Entire Scene via a Geometric Cognitive System</p>
+                </header>
+
+                <section>
+                    <h3 class="text-s font-black uppercase tracking-widest text-blue-600 mb-4">Background</h3>
+                    <p class="leading-relaxed text-slate-600">
+                        360° cameras can capture an entire scene from a single camera at a time. However, the resulting <strong>Equirectangular Projection (ERP)</strong> introduces geometric distortions that cause traditional CNNs to fail. Our <span class="text-blue-600 font-bold">Geometric Cognitive System</span> bridges this gap through a suite of specialized techniques.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="text-s font-black uppercase tracking-widest text-blue-600 mb-4">Case Study: Cross360 Framework</h3>
+                    <img src="assets/c2_cross360_network.jpg" alt="Cross360 Framework Overview" class="w-full rounded-xl shadow-sm border border-slate-100">
+                    <p class="img-caption">Framework Overview: Unified ERP-based Encoding and Multi-scale Fusion</p>
+                    <p class="leading-relaxed text-slate-600 mt-6">
+                        <strong>Cross360</strong> estimates 360° depth through three main components: an ERP-based feature encoder, <strong>Cross Projection Feature Alignment (CPFA)</strong>, and <strong>Progressive Feature Aggregation with Attention (PFAA)</strong>. The CPFA module aligns Tangent and ERP features, while the PFAA module processes decoder features at multiple levels to produce a final, high-fidelity depth map.
+                    </p>
+                </section>
+
+                <section class="grid grid-cols-2 gap-8 items-center">
+                    <div class="flex flex-col">
+                        <img src="assets/c2_cross360_projection.jpg" class="w-full rounded-xl border border-slate-100 shadow-sm">
+                        <p class="img-caption">CPFA Module: Tangent-to-ERP Feature Alignment
+                    </div>
+                    <div class="flex flex-col">
+                        <img src="assets/c2_cross360_scales.jpg" class="w-full rounded-xl border border-slate-100 shadow-sm">
+                        <p class="img-caption">PFAA Module: Multi-level Feature Aggregation
+                    </div>
+                </section>
+
+
+                <section>
+                    <h3 class="text-s font-black uppercase tracking-widest text-blue-600 mb-4">Academic Foundation</h3>
+                    <p class="text-slate-600 mb-6">This geometric cognitive system is built upon our original scientific publications:</p>
+                    <div class="paper-row border-l-4 border-l-blue-600 pl-4 py-2 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-800 tracking-tight leading-snug">
+                                Cross360: 360° Monocular Depth Estimation via Cross Projections Across Scales
+                            </h4>
+                            <p class="text-[11px] text-slate-400 font-mono mt-1.5 uppercase tracking-wider">
+                                <span class="text-blue-600 font-bold">2026 IEEE Transactions on Image Processing</span> | Journal Impact: 13.7
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="paper-row border-l-4 border-l-blue-600 pl-4 py-2 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-800 tracking-tight leading-snug">
+                                Multi-task Geometric Estimation of Depth and Surface Normal from Monocular 360° Images
+                            </h4>
+                            <p class="text-[11px] text-slate-400 font-mono mt-1.5 uppercase tracking-wider">
+                                <span class="text-blue-600 font-bold">2024 Computational Visual Media Journal</span> | Journal Impact: 17.2
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="paper-row border-l-4 border-l-blue-600 pl-4 py-2 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-800 tracking-tight leading-snug">
+                                PanoNormal: Monocular Indoor 360° Surface Normal Estimation
+                            </h4>
+                            <p class="text-[11px] text-slate-400 font-mono mt-1.5 uppercase tracking-wider">
+                                <span class="text-blue-600 font-bold">2025 ICXR / Virtual Reality & Intelligent Hardware Journal</span>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="space-y-6">
+                <div class="p-8 bg-blue-600 rounded-[32px] shadow-lg">
+                    <h4 class="text-[10px] font-black uppercase text-blue-200 mb-3 tracking-widest">Journal Impact</h4>
+                    <div class="text-6xl font-black text-white">17.2</div>
+                    <p class="text-xs text-blue-100 mt-3 leading-relaxed">Impact factor of our multi-task learning research published in CVMJ 2024.</p>
+                </div>
+
+                <div class="spec-card bg-slate-50">
+                    <h4 class="text-[10px] font-black uppercase text-slate-400 mb-3 tracking-widest">Research Tier</h4>
+                    <div class="text-4xl font-black text-slate-800">Core A*</div>
+                    <p class="text-xs text-slate-500 mt-2 italic">IEEE Transactions on Image Processing (TIP).</p>
+                </div>
+
+                <div class="spec-card bg-slate-50">
+                    <h4 class="text-[10px] font-black uppercase text-slate-400 mb-3 tracking-widest">Spatial Awareness</h4>
+                    <div class="text-4xl font-black text-slate-800">Full 3D</div>
+                    <p class="text-xs text-slate-500 mt-2">Simultaneous Depth + Surface Normal estimation for complete scene reconstruction.</p>
+                </div>
+
+                <div class="p-8 border-2 border-slate-100 rounded-[32px] bg-white">
+                    <h4 class="text-[10px] font-black uppercase text-slate-400 mb-4 tracking-widest">Technical Stack</h4>
+                    <div class="space-y-5">
+                        <div>
+                            <p class="text-[10px] font-bold text-blue-600 uppercase">Architecture</p>
+                            <p class="text-sm font-medium text-slate-700">Vision Transformer (ViT) & Multi-Head Self-Attention</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-blue-600 uppercase">Geometric Logic</p>
+                            <p class="text-sm font-medium text-slate-700">Cross-Projection Transformation & ERP-Tangent Fusion</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-blue-600 uppercase">Innovation</p>
+                            <p class="text-sm font-medium text-slate-700">Cross-Attention Alignment & Multi-task Joint Synergy</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <script src="nav-bar.js"></script>
+</body>
+</html>

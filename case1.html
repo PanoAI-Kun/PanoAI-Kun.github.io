@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PanoAI-Enterprise Truck Re-Identification</title>
+    <link rel="icon" type="image/png" href="assets/icon_16x16.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-10">
+    <main-navbar></main-navbar>
+    <main class="max-w-5xl mx-auto pt-10">
+        <article class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="md:col-span-2 space-y-12">
+                <header>
+                    <h1 class="text-6xl font-black tracking-tighter mb-4">Enterprise Truck<br>Re-Identification</h1>
+                    <p class="text-xl text-slate-400 italic">Semantic-Aligned and Detail-Aware Image Feature Matching</p>
+                </header>
+
+                <section>
+                    <h3 class="text-s font-black uppercase tracking-widest text-blue-600 mb-4">Environmental Challenges</h3>
+                    <img src="assets/c1_truck.jpg" alt="Truck Comparison under different lighting and viewpoints" class="w-full rounded-xl shadow-sm border border-slate-100">
+                    <p class="img-caption">Visualizing high-variance lighting and viewpoint shifts handled by the system</p>
+                    <p class="leading-relaxed text-slate-600 mt-6">
+                        This project represents a complete machine learning lifecycle, delivered from the ground up. We managed the design of data collection protocols, built a custom dataset of 5,009 image pairs, and developed the final production-ready model for real-world industrial use.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="text-s font-black uppercase tracking-widest text-blue-600 mb-4">The Innovation</h3>
+                    <img src="assets/c1_network.jpg" alt="Siamese-style Architecture with Cross-Attention" class="w-full rounded-xl shadow-sm border border-slate-100">
+                    <p class="img-caption">Siamese architecture combining Semantic-Alignment and Detail-Aware networks</p>
+                    <p class="leading-relaxed text-slate-600 mt-6 mb-4">The dual-network approach effectively mimics human observation to solve vehicle identification in extreme environments:</p>
+                    <ul class="space-y-4 text-slate-600">
+                        <li>• <strong>Global Understanding</strong>: A Semantic-Alignment network uses cross-attention to maintain accuracy despite changes in camera angle or vehicle scale.</li>
+                        <li>• <strong>Fine-Grained Detail</strong>: A Detail-Aware network focuses on unique color, gradient, and texture cues to differentiate look-alike vehicles.</li>
+                        <li>• <strong>Industrial Robustness</strong>: The system remains stable during nighttime operations even when blinded by high-beam headlights.</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h3 class="text-s font-black uppercase tracking-widest text-blue-600 mb-4">Academic Foundation</h3>
+                    <p class="text-slate-600 mb-6">This industrial application is built upon our original scientific publication:</p>
+                    <div class="paper-row border-l-4 border-l-blue-600 pl-4 py-1 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-800 tracking-tight leading-snug">
+                                Learning for Semantic-Aligned and Detail-Aware Image Feature Matching
+                            </h4>
+                            
+                            <p class="text-[10px] mt-1.5 text-blue-600 font-extrabold uppercase tracking-[0.15em]">
+                                Winner: Best Paper Award & Best Oral Presentation
+                            </p>
+                            
+                            <p class="text-[11px] text-slate-400 font-mono mt-1">
+                                CVIP 2025 | Emphasizing industry-leading innovation
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="space-y-6">
+                <div class="p-8 bg-blue-600 rounded-[32px] shadow-lg">
+                    <h4 class="text-[10px] font-black uppercase text-blue-200 mb-3 tracking-widest">Measured Accuracy</h4>
+                    <div class="text-6xl font-black text-white">89.64%</div>
+                    <p class="text-xs text-blue-100 mt-3 leading-relaxed">25% higher accuracy than industry-standard YOLOv9 (64.94%).</p>
+                </div>
+
+                <div class="spec-card bg-slate-50">
+                    <h4 class="text-[10px] font-black uppercase text-slate-400 mb-3 tracking-widest">Inference Speed</h4>
+                    <div class="text-4xl font-black text-slate-800">2 Seconds</div>
+                    <p class="text-xs text-slate-500 mt-2">Validated on CPU-based industrial servers for cost-effective scaling.</p>
+                </div>
+
+                <div class="spec-card bg-slate-50">
+                    <h4 class="text-[10px] font-black uppercase text-slate-400 mb-3 tracking-widest">Efficiency Gain</h4>
+                    <div class="text-4xl font-black text-slate-800">80%</div>
+                    <p class="text-xs text-slate-500 mt-2">Reduction in human monitoring; staff only intervene when alerted.</p>
+                </div>
+
+                <div class="p-8 border-2 border-slate-100 rounded-[32px]">
+                    <h4 class="text-[10px] font-black uppercase text-slate-400 mb-4 tracking-widest">Technical Stack</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-[10px] font-bold text-blue-600 uppercase">Software</p>
+                            <p class="text-sm font-medium text-slate-700">PyTorch, Adam Optimizer, Docker</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-blue-600 uppercase">Training Hardware</p>
+                            <p class="text-sm font-medium text-slate-700">Intel Xeon, NVIDIA RTX 3090 GPU</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-blue-600 uppercase">Data Pipeline</p>
+                            <p class="text-sm font-medium text-slate-700 italic">Continuous Collection & Extensible Workflows</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <script src="nav-bar.js"></script>
+
+</body>
+</html>

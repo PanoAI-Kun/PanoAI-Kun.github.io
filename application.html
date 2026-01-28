@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PanoAI - Technical Application Terminal</title>
+    <link rel="icon" type="image/png" href="assets/icon_16x16.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body class="text-slate-900">
+
+    <main-navbar></main-navbar>
+
+    <main class="max-w-[1600px] mx-auto px-6 pt-24 h-[90vh]">
+        <div class="flex-none">
+            <h1 class="text-3xl md:text-5xl font-black tracking-tighter italic mb-4 leading-none">
+                PanoAI Technical Project Showcase
+            </h1>
+        </div>
+        <div class="terminal-card h-full">
+            <div class="w-80 border-right border-slate-100 flex flex-col bg-slate-50/50">
+                <div class="p-8 pb-4"><span class="text-[10px] font-bold text-slate-400 tracking-widest uppercase">Featured Projects</span></div>
+                <div class="flex-1 overflow-y-auto">
+                    <div id="btn-case1" class="sidebar-tab active p-8" onclick="switchModule('case1', this)">
+                        <h4 class="font-bold text-sm">Enterprise Truck Re-ID</h4>
+                    </div>
+                    <div id="btn-case2" class="sidebar-tab p-8" onclick="switchModule('case2', this)">
+                        <h4 class="font-bold text-sm">Geometric Cognitive System</h4>
+                    </div>
+                    <div id="btn-case3" class="sidebar-tab p-8" onclick="switchModule('case3', this)">
+                        <h4 class="font-bold text-sm">VR Visual Infrastructure</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-[2] relative bg-[#fcfcfd] border-r border-slate-100">
+                <div id="main-canvas"></div>
+                <div class="canvas-hud">
+                    <div class="scan-bar"></div>
+                    <div id="status-text" class="absolute top-6 left-6 text-[9px] font-mono text-blue-500/60 leading-relaxed">
+                        SYSTEM_STATUS: ACTIVE<br>SAMPLES: <span id="point-count-hud">24,500</span>_PTS<br>MODE: Point Cloud
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex-[1.5] flex flex-col bg-white overflow-hidden">
+                <div id="doc-container" class="doc-viewer p-12 flex-1 flex flex-col justify-between">
+                    <div id="doc-content">
+                        <h2 id="doc-title" class="text-4xl font-bold mb-8 italic tracking-tighter">Enterprise Truck Re-Identification</h2>
+                        
+                        <div class="grid grid-cols-2 gap-4 mb-8">
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                                <div id="m1-category" class="text-[10px] text-slate-400 font-bold uppercase mb-1 tracking-widest">Metric I</div>
+                                <div id="m1-val" class="text-3xl font-black text-blue-600">89.64%</div>
+                                <div id="m1-label" class="text-[10px] text-slate-500 uppercase font-bold">Accuracy</div>
+                            </div>
+                            <div class="bg-slate-50 p-5 rounded-2xl border border-slate-100">
+                                <div id="m2-category" class="text-[10px] text-slate-400 font-bold uppercase mb-1 tracking-widest">Metric II</div>
+                                <div id="m2-val" class="text-3xl font-black text-slate-800">2s</div>
+                                <div id="m2-label" class="text-[10px] text-slate-500 uppercase font-bold">Inference</div>
+                            </div>
+                        </div>
+
+                        <section class="mb-8">
+                            <h5 class="text-[11px] font-black text-slate-300 uppercase mb-4 tracking-widest">Key Challenge</h5>
+                            <div class="flex items-start">
+                                <!-- <span class="text-blue-500 mr-2">•</span> -->
+                                <p id="doc-challenge" class="text-base text-slate-600 italic leading-relaxed">
+                                    Extreme dust and viewpoint shifts.
+                                </p>
+                            </div>
+                        </section>
+
+                        <section class="mb-8">
+                            <h5 class="text-[11px] font-black text-slate-300 uppercase mb-4 tracking-widest">Innovation Core</h5>
+                            <ul id="doc-tech" class="text-base text-slate-600 space-y-3">
+                                </ul>
+                        </section>
+                    </div>
+
+                    <div class="pt-8">
+                        <a id="case-link" href="case1.html" class="group flex items-center justify-between bg-blue-600 text-white p-6 rounded-2xl transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-200">
+                            <span class="text-[12px] font-bold uppercase tracking-widest">Explore Full Technical Report</span>
+                            <svg class="w-5 h-5 transition-transform group-hover:translate-x-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const container = document.getElementById('main-canvas');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
+        camera.position.set(12, 8, 12); camera.lookAt(0, 0, 0);
+
+        let currentActiveId = 'case1';
+        let isDragging = false;
+        let prevMouse = { x: 0, y: 0 };
+
+        const truckGroup = new THREE.Group();
+        const omniGroup = new THREE.Group();
+        const stereoGroup = new THREE.Group();
+        scene.add(truckGroup, omniGroup, stereoGroup);
+
+        function createPC(v, c, s=0.08) {
+            const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.Float32BufferAttribute(v, 3));
+            return new THREE.Points(g, new THREE.PointsMaterial({ color: c, size: s, transparent: true, opacity: 0.8, sizeAttenuation: true }));
+        }
+
+        function genBox(w, h, d, cx, cy, cz, density = 0.25) {
+            const p = [];
+            for (let x = -w/2; x <= w/2; x += density) {
+                for (let y = -h/2; y <= h/2; y += density) {
+                    p.push(cx+x, cy+y, cz+d/2, cx+x, cy+y, cz-d/2);
+                }
+            }
+            for (let z = -d/2; z <= d/2; z += density) {
+                for (let y = -h/2; y <= h/2; y += density) {
+                    p.push(cx+w/2, cy+y, cz+z, cx-w/2, cy+y, cz+z);
+                }
+            }
+            for (let x = -w/2; x <= w/2; x += density) {
+                for (let z = -d/2; z <= d/2; z += density) {
+                    p.push(cx+x, cy+h/2, cz+z, cx+x, cy-h/2, cz+z);
+                }
+            }
+            return p;
+        }
+
+        function genCyl(radius, height, centerX, centerY, centerZ, segments = 32, heightDensity = 0.2) {
+            const points = [];
+            for (let i = 0; i <= segments; i++) {
+                const theta = (i / segments) * Math.PI * 2;
+                const y = Math.cos(theta) * radius;
+                const z = Math.sin(theta) * radius;
+                for (let x = -height/2; x <= height/2; x += heightDensity) {
+                    points.push(centerX + x, centerY + y, centerZ + z);
+                }
+            }
+            return points;
+        }
+
+        // Module 1: Truck
+        truckGroup.add(createPC(genBox(4, 3, 3, 0, 1.5, 4), 0x3b82f6));
+        truckGroup.add(createPC(genBox(4, 2.5, 6, 0, 1.25, -1.5), 0x1d4ed8));
+        truckGroup.add(createPC(genBox(3.5, 0.5, 9, 0, 0, 0.5), 0x64748b));
+        const wheelPoints = [...genCyl(0.8, 0.4, -2.2, 0, 3.5), ...genCyl(0.8, 0.4, 2.2, 0, 3.5), ...genCyl(0.8, 0.4, -2.2, 0, -2), ...genCyl(0.8, 0.4, 2.2, 0, -2), ...genCyl(0.8, 0.4, -2.2, 0, -3.5), ...genCyl(0.8, 0.4, 2.2, 0, -3.5)];
+        truckGroup.add(createPC(wheelPoints, 0x1e293b, 0.12));
+        const windowPoints = [...genBox(3, 1.5, 0.1, 0, 2.2, 5.5), ...genBox(0.1, 1.5, 2, -1.9, 2.2, 4), ...genBox(0.1, 1.5, 2, 1.9, 2.2, 4)];
+        truckGroup.add(createPC(windowPoints, 0x93c5fd, 0.1));
+
+        // Module 2: Omni Cube
+        function createNormalCubePC() {
+            const positions = []; const colors = []; const cubeSize = 6; const half = cubeSize / 2; const pointsPerSide = 30;
+            function addFacePoints(startX, startY, startZ, uDirX, uDirY, uDirZ, vDirX, vDirY, vDirZ, normal) {
+                for (let i = 0; i < pointsPerSide; i++) {
+                    for (let j = 0; j < pointsPerSide; j++) {
+                        const u = i / (pointsPerSide - 1); const v = j / (pointsPerSide - 1);
+                        positions.push(startX + u * uDirX + v * vDirX, startY + u * uDirY + v * vDirY, startZ + u * uDirZ + v * vDirZ);
+                        colors.push((normal.x + 1) * 0.5, (normal.y + 1) * 0.5, (normal.z + 1) * 0.5);
+                    }
+                }
+            }
+            addFacePoints(-half, half, -half, cubeSize, 0, 0, 0, 0, cubeSize, new THREE.Vector3(0, 1, 0));
+            addFacePoints(-half, -half, -half, cubeSize, 0, 0, 0, 0, cubeSize, new THREE.Vector3(0, -1, 0));
+            addFacePoints(-half, -half, half, cubeSize, 0, 0, 0, cubeSize, 0, new THREE.Vector3(0, 0, 1));
+            addFacePoints(-half, -half, -half, cubeSize, 0, 0, 0, cubeSize, 0, new THREE.Vector3(0, 0, -1));
+            addFacePoints(half, -half, -half, 0, 0, cubeSize, 0, cubeSize, 0, new THREE.Vector3(1, 0, 0));
+            addFacePoints(-half, -half, -half, 0, 0, cubeSize, 0, cubeSize, 0, new THREE.Vector3(-1, 0, 0));
+            const geo = new THREE.BufferGeometry();
+            geo.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+            geo.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+            return new THREE.Points(geo, new THREE.PointsMaterial({ size: 0.1, vertexColors: true, transparent: true, opacity: 0.9 }));
+        }
+        omniGroup.add(createNormalCubePC());
+        omniGroup.visible = false;
+
+        // Module 3: Stereo
+        const pointsRed = new THREE.Points(new THREE.SphereGeometry(4, 50, 50), new THREE.PointsMaterial({color: 0xff0000, size: 0.08}))
+        const pointsCyan = new THREE.Points(new THREE.SphereGeometry(4, 50, 50), new THREE.PointsMaterial({color: 0x00ffff, size: 0.08}))
+        stereoGroup.add(pointsRed, pointsCyan); stereoGroup.visible = false;
+        let stereoAlign = { value: 0 };
+
+        container.addEventListener('mousedown', (e) => { isDragging = true; prevMouse = { x: e.clientX, y: e.clientY }; });
+        window.addEventListener('mouseup', () => { isDragging = false; });
+        window.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const deltaX = e.clientX - prevMouse.x;
+                const deltaY = e.clientY - prevMouse.y;
+                let target = (currentActiveId === 'case1') ? truckGroup : (currentActiveId === 'case2' ? omniGroup : stereoGroup);
+                target.rotation.y += deltaX * 0.005;
+                target.rotation.x += deltaY * 0.005;
+                prevMouse = { x: e.clientX, y: e.clientY };
+            }
+        });
+
+        const caseDetails = {
+            case1: { 
+                title: "Enterprise <br>Truck Re-Identification", 
+                challenge: "Complex backgrounds with extreme perspective and lighting shifts.", 
+                tech: ["Semantic-Alignment Net", "Detail-Aware Matching", "Cross-Attention Feature Fusion"],
+                m1: ["Performance", "89.64%", "Accuracy"], 
+                m2: ["Latency", "2s", "Inference"], 
+                pts: "24,500", link: "case1.html" 
+            },
+            case2: { 
+                title: "Geometric <br>Cognitive System", 
+                challenge: "Non-linear ERP geometric distortions and spherical feature.", 
+                tech: ["Tangent-to-ERP Feature Alignment", "Multi-level Feature Aggregation", "Multi-task learning"],
+                m1: ["Impact", "17.2", "Journal Impact Factor"], 
+                m2: ["Ranking", "Core A*", "Research Tier"], 
+                pts: "15,000", link: "case2.html" 
+            },
+            case3: { 
+                title: "VR <br>Visual Infrastructure", 
+                challenge: "Perceptual ghosting and depth-map inconsistency in binocular.", 
+                tech: ["Per-View Synthesis", "Stereo ROI Composition", "MLOps Pipeline"],
+                m1: ["Efficiency", "50%", "Cost Saved"], 
+                m2: ["Optimization", "3.8k", "Min Optimized"], 
+                pts: "5,000", link: "case3.html" 
+            },
+        };
+
+        function switchModule(id, el) {
+            currentActiveId = id;
+            document.querySelectorAll('.sidebar-tab').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            const data = caseDetails[id];
+
+            truckGroup.visible = (id === 'case1');
+            omniGroup.visible = (id === 'case2');
+            stereoGroup.visible = (id === 'case3');
+
+            if (id === 'case3') {
+                stereoAlign.value = 0;
+                pointsRed.material.color.set(0xff0000); pointsCyan.material.color.set(0x00ffff);
+                gsap.to(stereoAlign, { value: 1, duration: 3, ease: "power2.inOut", onUpdate: () => {
+                    const offset = 0.5 * (1 - stereoAlign.value);
+                    pointsRed.position.x = -offset; pointsCyan.position.x = offset;
+                    pointsRed.material.color.lerp(new THREE.Color("#8F00FF"), 0.01);
+                    pointsCyan.material.color.lerp(new THREE.Color("#8F00FF"), 0.01);
+                }});
+            }
+
+            gsap.to("#doc-content", { opacity: 0, y: 10, duration: 0.2, onComplete: () => {
+                    document.getElementById('doc-title').innerHTML = data.title;
+                    document.getElementById('doc-challenge').innerText = data.challenge;
+                    
+                    // Update Metric 1
+                    document.getElementById('m1-category').innerText = data.m1[0];
+                    document.getElementById('m1-val').innerText = data.m1[1];
+                    document.getElementById('m1-label').innerText = data.m1[2];
+                    
+                    // Update Metric 2
+                    document.getElementById('m2-category').innerText = data.m2[0];
+                    document.getElementById('m2-val').innerText = data.m2[1];
+                    document.getElementById('m2-label').innerText = data.m2[2];
+
+                    document.getElementById('point-count-hud').innerText = data.pts;
+                    document.getElementById('case-link').href = data.link;
+                    document.getElementById('doc-tech').innerHTML = data.tech.map(t => `<li class="flex items-start"><span class="text-blue-500 mr-2">•</span>${t}</li>`).join('');
+                    
+                    gsap.to("#doc-content", { opacity: 1, y: 0, duration: 0.4 });
+                }});
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            if (!isDragging) {
+                truckGroup.rotation.y += 0.005;
+                omniGroup.rotation.y += 0.005;
+                stereoGroup.rotation.y += 0.003;
+            }
+            renderer.render(scene, camera);
+        }
+        animate();
+    switchModule('case1', document.getElementById('btn-case1'));
+    </script>
+    <script src="nav-bar.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PanoAI-VR Visual Infrastructure</title>
+    <link rel="icon" type="image/png" href="assets/icon_16x16.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="p-10">
+    <main-navbar></main-navbar>
+    <main class="max-w-5xl mx-auto pt-10">
+        <article class="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div class="md:col-span-2 space-y-12">
+                <header>
+                    <h1 class="text-6xl font-black tracking-tighter mb-4">VR Visual<br>Infrastructure</h1>
+                    <p class="text-xl text-slate-400 italic">Stereo Image Composition & Pipeline ROI Optimization</p>
+                </header>
+
+                <section>
+                    <h3 class="text-s font-black uppercase tracking-widest text-blue-600 mb-4">The Single-Shot Advantage & Challenge</h3>
+                    <p class="leading-relaxed text-slate-600">
+                        Panoramic or 360° images capture an entire scene from a single camera at a single moment. However, manipulating stereo panoramic content, such as inserting objects, is notoriously difficult. Traditional "one-off" operations produce broken depth perception and ghost artifacts when viewed from different directions.
+                    </p>
+                </section>
+
+                <section>
+                    <h3 class="text-s font-black uppercase tracking-widest text-blue-600 mb-4">TVCG Innovation: Per-View Synthesis</h3>
+                    <img src="assets/c3_ViewDependent.jpg" alt="Per-view Synthesis Framework" class="w-full rounded-xl shadow-sm border border-slate-100">
+                    <p class="img-caption">Per-view Synthesis: (a) Spherical Coordinates (b) Per-view Projection (c) Stereo pair generation guided by densified depth maps</p>
+                    <p class="leading-relaxed text-slate-600 mt-6">
+                        Published in IEEE TVCG, our research represents the first general pipeline designed specifically for compositing objects into stereo 360° image pairs. As a fundamental work in VR visual processing, our solution segments objects in 3D spherical space by simulating the stereo camera pair facing each view direction. A deep depth densification network then generates precise depth guidance, ensuring virtual objects feel grounded and artifact-free, establishing a potential paradigm for future content manipulation in omnidirectional media.
+                </section>
+
+                <section>
+                    <h3 class="text-s font-black uppercase tracking-widest text-blue-600 mb-4">Commercial Case: oVRcome Platforms</h3>
+                    <div class="space-y-6">
+                        <div class="p-6 border border-slate-100 rounded-xl bg-slate-50">
+                            <h4 class="text-xs font-bold text-blue-600 uppercase mb-4 tracking-widest">MLOps Pipeline Optimization</h4>
+                            <ul class="text-sm text-slate-600 space-y-3">
+                                <li class="flex items-start"><span class="mr-2">•</span> <span>Introduced quantitative VR quality evaluation using VMAF and perceptual metrics to replace subjective assessment.</span></li>
+                                <li class="flex items-start"><span class="mr-2">•</span> <span>Designed a scalable, end-to-end evaluation pipeline that automates re-encoding logic for 3,850+ minutes of video.</span></li>
+                                <li class="flex items-start"><span class="mr-2">•</span> <span>Transitioned from visual guesswork to objective measurement of VR video clarity.</span></li>
+                            </ul>
+                        </div>
+                        
+                        <div class="p-6 border border-slate-100 rounded-xl bg-slate-50">
+                            <h4 class="text-xs font-bold text-blue-600 uppercase mb-4 tracking-widest">ROI & User Experience Optimization</h4>
+                            <ul class="text-sm text-slate-600 space-y-3">
+                                <li class="flex items-start"><span class="mr-2">•</span> <span>Through established quantitative data pipelines, identified the "sweet point" between encoding rate and resolution to maximize immersion.</span></li>
+                                <li class="flex items-start"><span class="mr-2">•</span> <span>Optimized bitrate profiles across scene types, improving clarity and stability for fast-motion scenarios.</span></li>
+                                <li class="flex items-start"><span class="mr-2">•</span> <span>Directly supported successful funding applications through evidence-based quality reporting.</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3 class="text-s font-black uppercase tracking-widest text-blue-600 mb-4">Academic Foundation</h3>
+                    <div class="paper-row border-l-4 border-l-blue-600 pl-4 py-2 mb-6">
+                        <div>
+                            <h4 class="text-xl font-bold text-slate-800 tracking-tight leading-snug">
+                                360° Stereo Image Composition with Depth Adaption
+                            </h4>
+                            
+                            <p class="text-[11px] text-slate-400 font-mono mt-1.5 uppercase tracking-wider">
+                                <span class="text-blue-600 font-bold">2024 IEEE Transactions on Visualization and Computer Graphics</span> | Tier A*
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="space-y-6">
+                <div class="p-8 bg-blue-600 rounded-[32px] shadow-lg">
+                    <h4 class="text-[10px] font-black uppercase text-blue-200 mb-3 tracking-widest">Commercial ROI</h4>
+                    <div class="text-6xl font-black text-white">50%</div>
+                    <p class="text-xs text-blue-100 mt-3 leading-relaxed">Lowered encoding and conversion costs through data-driven pipeline optimization.</p>
+                </div>
+
+                <div class="spec-card bg-slate-50">
+                    <h4 class="text-[10px] font-black uppercase text-slate-400 mb-3 tracking-widest">Academic Excellence</h4>
+                    <div class="text-4xl font-black text-slate-800">Tier A*</div>
+                    <p class="text-xs text-slate-500 mt-2">Establishing a first-of-its-kind paradigm for stereo 360° content manipulation.</p>
+                </div>
+
+                <div class="p-8 border-2 border-slate-100 rounded-[32px] bg-white">
+                    <h4 class="text-[10px] font-black uppercase text-slate-400 mb-4 tracking-widest">Technical Highlights</h4>
+                    <div class="space-y-5">
+                        <div>
+                            <p class="text-[10px] font-bold text-blue-600 uppercase">3D Architecture</p>
+                            <p class="text-sm font-medium text-slate-700">Per-View Projection & Depth Adaptation</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-blue-600 uppercase">AI Data Science</p>
+                            <p class="text-sm font-medium text-slate-700">Built Automated Evaluation Workflow (VMAF & ETL)</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-blue-600 uppercase">Commercial ROI</p>
+                            <p class="text-sm font-medium text-slate-700">50% Cost Reduction via Metric-Driven Encoding</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold text-blue-600 uppercase">Scale</p>
+                            <p class="text-sm font-medium text-slate-700 italic">3,850+ mins VR Pipeline Automation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+    <script src="nav-bar.js"></script>
+</body>
+</html>

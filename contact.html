@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>PanoAI - Contact & Consultation</title>
+    <link rel="icon" type="image/png" href="assets/icon_16x16.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="fade-in viewport-locked">
+    <main-navbar></main-navbar>
+
+    <main class="flex-grow flex flex-col items-center justify-center p-4 md:p-8">
+        <header class="mb-4 md:mb-8 text-center">
+            <h1 class="text-3xl md:text-5xl font-black tracking-tighter italic mb-4 leading-none">Contact & Consultation</h1>
+            <p class="text-slate-400 font-mono text-[8px] md:text-[10px] uppercase tracking-[0.2em] mt-2">B2B Industrial Collaboration Terminal</p>
+        </header>
+
+        <div class="contact-card w-full max-w-5xl p-5 md:p-12">
+            <form action="https://formspree.io/f/mbddevyj" method="POST" id="contact-form" class="space-y-4">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="name">Name / Organization</label>
+                        <input type="text" name="name" id="name" required placeholder="Dr. Jane Doe" class="input-field">
+                    </div>
+                    <div>
+                        <label for="email">Email Address</label>
+                        <input type="email" name="_replyto" id="email" required placeholder="jane@company.com" class="input-field">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    <div class="col-span-2 md:col-span-1">
+                        <label for="type">Type</label>
+                        <select name="type" id="type" required class="input-field">
+                            <option value="consultation">Industrial</option>
+                            <option value="recruitment">Talent</option>
+                            <option value="academic">Academic</option>
+                            <option value="personal">Personal</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="budget">Budget</label>
+                        <select name="budget" id="budget" class="input-field">
+                            <option value="low">&lt; $5k</option>
+                            <option value="mid">$5k - $20k</option>
+                            <option value="high">$20k+</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="timeline">Timeline</label>
+                        <select name="timeline" id="timeline" class="input-field">
+                            <option value="immediate">1 Month</option>
+                            <option value="short">1-3 Mo</option>
+                            <option value="long">Long-term</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label for="message">Technical Challenge</label>
+                    <textarea name="message" id="message" rows="6" required placeholder="How can we help?" class="input-field"></textarea>
+                </div>
+
+                <div class="flex flex-col items-center space-y-8 pt-2">
+                    <div class="captcha-container">
+                        <div class="h-captcha" data-sitekey="446a72d2-d078-43d4-a1ac-7322843691f6"></div>
+                    </div>
+                
+                    <button type="submit" class="flex items-center justify-center bg-blue-600 text-white px-8 py-5 rounded-2xl font-bold transition-all hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-200 hover:scale-105 w-full md:w-auto min-w-[240px]">
+                        <span class="text-[11px] uppercase tracking-widest">Initialize Connection</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <footer class="mt-6">
+            <p class="text-[9px] font-mono text-slate-300 uppercase tracking-widest">End_of_Transmission // Secure_Encryption</p>
+        </footer>
+    </main>
+
+    <script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <script src="nav-bar.js"></script>
+</body>
+</html>
